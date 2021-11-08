@@ -1,0 +1,23 @@
+@import 'variables/variables';
+@import 'globals/globals';
+
+@import 'mixins/dropdown';
+@import 'mixins/navbar';
+@import 'mixins/vendor_prefixes';
+
+@import 'partials/dropdown';
+@import 'partials/form';
+@import 'partials/modal';
+@import 'partials/loadingspinner';
+@import 'partials/parallax';
+@import 'partials/navbar';
+@import 'partials/responsive';
+
+@font-face {
+    font-family: 'GothRough';
+    src:  url('../fonts/Gothic rough.otf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Algerian';
+    src:  url('../fonts/Algerian-Regular.ttf') format('truetype');
+  }

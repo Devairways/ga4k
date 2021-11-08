@@ -1,0 +1,188 @@
+.navbar{
+    padding-top: 0.625rem;;
+    padding-bottom: 0.625rem;;
+    height: 75px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+    @media screen and (max-width:1065px) {
+        padding: 10px 15px;
+    }
+
+    a{
+        vertical-align: middle;
+
+        &:not(.btn):not(.dropdown-item){
+            color: $white-color;
+        }
+    }
+
+    p{
+        display: inline-block;
+        margin: 0;
+        line-height: 21px;
+        font-weight: inherit;
+        font-size: inherit;
+    }
+
+    .navbar-nav{
+        &.navbar-logo{
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 49px;
+            top: -4px;
+        }
+
+        .nav-link.btn{
+            padding:  11px 22px;
+ 
+            &.btn-lg{
+                padding: 15px 48px;
+            }
+
+            &.btn-sm{
+                padding:5px 15px;
+            }
+        }
+
+        .nav-link:not(.btn){
+            text-transform: uppercase;  
+            font-size: 0.8242em;
+            padding: .5rem .7rem;
+            line-height:  1.625rem;
+
+            i.fab + p,
+            i.now-ui-icons + p{
+                margin-left: 3px;
+            }
+
+            i.fab,
+            i.now-ui-icons{
+                font-size: 18px;
+                position: relative;
+                top: 3px;
+                text-align: center;
+                width: 21px;
+            }
+
+            i.now-ui-icons{
+                top: 4px;
+                font-size: 16px;
+            }
+
+            &.profile-photo{
+                .profile-photo-small{
+                    width: 27px;
+                    height: 27px;
+                }
+            }
+
+            &.disabled{
+                opacity: .5;
+                color: $white-color;
+            }
+        }
+
+        .nav-item:not(.btn):hover{
+            @media screen and (max-width:1065px) {
+                background-color:  rgba(255,255,255, .2);
+                border-radius:  0.1875rem;
+            }
+        }
+
+        .nav-item.active .nav-link:not(.btn),
+        .nav-item .nav-link:not(.btn):hover,
+        .nav-item .nav-link:not(.btn):focus,
+        .nav-item .nav-link:not(.btn):active{
+            background-color:  rgba(255,255,255, .2);
+            border-radius:  0.1875rem;
+            @media screen and (max-width:1065px) {
+                background-color: unset;
+            }
+        }
+    }
+
+    .logo-container{
+        width: 27px;
+        height: 27px;
+        overflow: hidden;
+        margin: 0 auto;
+        border-radius: 50%;
+        border: 1px solid transparent;
+    }
+
+    .navbar-brand{
+        text-transform: uppercase;
+        font-size: 1.8571em;
+        padding-top: 1rem;
+        padding-bottom: .5rem;
+        line-height: 1.625rem;
+        font-family: "Algerian";
+        text-decoration: none;
+        @media screen and (max-width:767px) {
+            font-size: 1.5em;
+        }
+    }
+
+    .navbar-toggler{
+        width: 37px;
+        height: 27px;
+        outline: 0;
+        cursor: pointer;
+
+        &.navbar-toggler-left{
+            position: relative;
+            left: 0;
+            padding-left: 0;
+        }
+
+        .navbar-toggler-bar.middle-bar{
+          width: 17px;
+          transition: width .2s linear;
+        }
+
+        &:hover{
+            & .navbar-toggler-bar.middle-bar{
+                width: 22px;
+            }
+        }
+    }
+
+    .button-dropdown{
+        .navbar-toggler-bar:nth-child(2){
+            width: 17px;
+        }
+    }
+
+    &.navbar-transparent{
+        background-color: transparent !important;
+        box-shadow: none;
+        color: $white-color;
+        padding-top: 20px !important;
+    }
+
+    &.bg-white:not(.navbar-transparent){
+        a:not(.dropdown-item):not(.btn){
+            color: $white-color;
+
+            &.disabled{
+                opacity: .5;
+                color: $white-color;
+            }
+        }
+
+        .button-bar{
+            background: #888888;
+        }
+
+        .nav-item.active .nav-link:not(.btn),
+        .nav-item .nav-link:not(.btn):hover{
+            background-color:  rgba(222,222,222, .3);
+        }
+
+        .logo-container{
+            border: 1px solid #888888;
+        }
+    }
+}
