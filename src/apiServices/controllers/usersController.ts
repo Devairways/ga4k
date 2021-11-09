@@ -11,7 +11,7 @@ export const getUserData = async (id: string) => {
   } catch (error) {
     ElNotification({
       title: "Failed",
-      message: "Could not retrieve profile",
+      message: "Could not retrieve user data",
       type: "error"
     });
     console.warn(error);
@@ -27,6 +27,11 @@ export const getAllUsers = async (pageLimit: number, lastestDoc?: Record<string,
       .get();
     return items;
   } catch (error) {
+    ElNotification({
+      title: "Failed",
+      message: "Could not retrieve users",
+      type: "error"
+    });
     console.warn(error);
   }
 };
@@ -37,7 +42,7 @@ export const updateUserData = async (userId: string, userData: UserData) => {
   } catch (error) {
     ElNotification({
       title: "Failed",
-      message: "Could not update profile",
+      message: "Could not update user",
       type: "error"
     });
     console.warn(error);
@@ -45,5 +50,13 @@ export const updateUserData = async (userId: string, userData: UserData) => {
 };
 
 export const deleteUser = async (id: string) => {
-  await newsCollection.doc(id).delete();
+  try {
+    await newsCollection.doc(id).delete();
+  } catch (error) {
+    ElNotification({
+      title: "Failed",
+      message: "Could not delete user",
+      type: "error"
+    });
+  }
 };

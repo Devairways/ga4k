@@ -62,7 +62,7 @@ export default defineComponent({
       }
       this.pendingRequest = true;
       const newsItems = await ApiController.news.getNewsItemList(5);
-      console.log("newsItem", newsItems);
+
       if (newsItems?.docs.length) {
         newsItems.docs.map(doc =>
           this.newsList.push(({ id: doc.id, ...doc.data() } as unknown) as NewsItem)
@@ -77,7 +77,7 @@ export default defineComponent({
       }
       this.pendingRequest = true;
       const eventItems = await ApiController.events.getEventItemList(5);
-      console.log("eventItems", eventItems);
+
       if (eventItems?.docs.length) {
         eventItems.docs.map(doc =>
           this.eventList.push(({ id: doc.id, ...doc.data() } as unknown) as EventItem)

@@ -73,16 +73,17 @@ export default defineComponent({
       this.pendingRequest = true;
       const newsItems = await ApiController.news.getNewsItemList(this.pageLimit, this.lastestDoc);
 
-      if (!newsItems?.docs.length) {
+      newsItems?.docs.map(doc =>
+        this.newsList.push(({ id: doc.id, ...doc?.data() } as unknown) as NewsItem)
+      );
+
+      if (!newsItems?.docs.length || newsItems.docs.length < this.pageLimit) {
         this.endOfList = true;
         this.pendingRequest = false;
         return;
       }
-      newsItems.docs.map(doc =>
-        this.newsList.push(({ id: doc.id, ...doc?.data() } as unknown) as NewsItem)
-      );
-      this.newsItemCounter += this.pageLimit;
 
+      this.newsItemCounter += this.pageLimit;
       this.pendingRequest = false;
     },
     async deleteItem(id: string) {

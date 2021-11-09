@@ -14,7 +14,8 @@ import StarterKit from "@tiptap/starter-kit";
 import MenuBar from "./EditorMenuBar.vue";
 import TaskList from "@tiptap/extension-task-list";
 import TaskItem from "@tiptap/extension-task-item";
-import { Color } from "@tiptap/extension-color";
+import Text from "@tiptap/extension-text";
+import TextStyle from "@tiptap/extension-text-style";
 import Highlight from "@tiptap/extension-highlight";
 
 export default {
@@ -32,7 +33,7 @@ export default {
   },
   mounted() {
     this.editor = new Editor({
-      extensions: [StarterKit, TaskList, TaskItem, Color, Highlight],
+      extensions: [StarterKit, Highlight, Text, TextStyle, TaskList, TaskItem],
       onUpdate: () => {
         this.$emit("update:body-content", this.editor.getHTML());
       },

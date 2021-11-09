@@ -88,16 +88,16 @@ export default defineComponent({
         this.lastestDoc
       );
 
-      if (!eventsItems?.docs.length) {
+      eventsItems?.docs.map(doc =>
+        this.eventslist.push(({ id: doc.id, ...doc?.data() } as unknown) as EventItem)
+      );
+
+      if (!eventsItems?.docs.length || eventsItems?.docs.length < this.pageLimit) {
         this.endOfList = true;
         this.pendingRequest = false;
         return;
       }
-      eventsItems.docs.map(doc =>
-        this.eventslist.push(({ id: doc.id, ...doc?.data() } as unknown) as EventItem)
-      );
       this.eventsItemCounter += this.pageLimit;
-
       this.pendingRequest = false;
     }
   },

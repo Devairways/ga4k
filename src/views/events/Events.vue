@@ -128,7 +128,7 @@ export default defineComponent({
       }
     }
   },
-  created() {
+  mounted() {
     this.getEvents();
     window.addEventListener("scroll", this.handleScroll);
   },
