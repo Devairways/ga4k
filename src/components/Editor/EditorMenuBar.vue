@@ -4,6 +4,17 @@
       <div class="divider" v-if="item.type === 'divider'" :key="`divider${index}`" />
       <menu-item v-else :key="index" v-bind="item" />
     </template>
+    <!-- <input
+      type="color"
+      @input="
+        editor
+          .chain()
+          .focus()
+          .setColor($event.target.value)
+          .run()
+      "
+      :value="editor.getAttributes('textStyle').color"
+    /> -->
   </div>
 </template>
 
@@ -12,7 +23,7 @@ import { defineComponent } from "vue";
 import MenuItem from "./EditorMenuItem.vue";
 
 export default defineComponent({
-  name:"EditorMenuBar",
+  name: "EditorMenuBar",
   components: {
     MenuItem
   },

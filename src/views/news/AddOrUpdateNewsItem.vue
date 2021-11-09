@@ -1,7 +1,8 @@
 <template
   ><div id="add-update-news">
     <div class="page-header">
-      <parallax class="parallax-header-image" style="background-image:url('img/custom.jpg')">
+      <parallax class="parallax-header-image" style="background-image:url('img/custom.jpg')"
+        ><div class="overlay-container"></div>
       </parallax>
       <div class="container">
         <div class="parallax-content-text">
@@ -42,15 +43,17 @@
             ></editor>
             <ErrorMessage class="alert" name="body" />
           </div>
-          <el-upload
-            list-type="picture-card"
-            :action="'undefined'"
-            :on-preview="handlePictureCardPreview"
-            :on-remove="handleRemove"
-            :http-request="uploadNewPicture"
-          >
-            <i class="el-icon-plus"></i>
-          </el-upload>
+          <div class="form-group col-12">
+            <el-upload
+              list-type="picture-card"
+              :action="'undefined'"
+              :on-preview="handlePictureCardPreview"
+              :on-remove="handleRemove"
+              :http-request="uploadNewPicture"
+            >
+              <i class="el-icon-plus"></i>
+            </el-upload>
+          </div>
           <el-dialog v-model="dialogVisible" center
             ><img :src="dialogImageUrl" alt="preview" />
           </el-dialog>

@@ -70,25 +70,24 @@ export default defineComponent({
       if (this.pendingRequest || this.endOfList) {
         return;
       }
-      try {
-        this.pendingRequest = true;
-        const eventsItems = await ApiController.events.getEventItemList(
-          this.pageLimit,
-          this.lastestDoc
-        );
 
-        if (!eventsItems?.docs.length) {
-          this.endOfList = true;
-          this.pendingRequest = false;
-          return;
-        }
-        eventsItems.docs.map(doc =>
-          this.eventsList.push(({ id: doc.id, ...doc?.data() } as unknown) as EventItem)
-        );
-        this.eventsItemCounter += this.pageLimit;
-      } catch (error) {
-        console.warn(error);
+      this.pendingRequest = true;
+      const eventsItems = await ApiController.events.getEventItemList(
+        this.pageLimit,
+        this.lastestDoc
+      );
+
+      eventsItems?.docs.map(doc =>
+        this.eventsList.push(({ id: doc.id, ...doc?.data() } as unknown) as EventItem)
+      );
+
+      if (!eventsItems?.docs.length || eventsItems.docs.length < this.pageLimit) {
+        this.endOfList = true;
+        this.pendingRequest = false;
+        return;
       }
+
+      this.eventsItemCounter += this.pageLimit;
       this.pendingRequest = false;
     },
     async deleteItem(id: string) {

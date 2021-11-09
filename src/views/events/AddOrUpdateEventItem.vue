@@ -1,7 +1,8 @@
 <template>
   <div id="add-update-event">
     <div class="page-header">
-      <parallax class="parallax-header-image" style="background-image:url('img/rent.jpg')">
+      <parallax class="parallax-header-image" style="background-image:url('img/rent.jpg')"
+        ><div class="overlay-container"></div>
       </parallax>
       <div class="container">
         <div class="parallax-content-text">
