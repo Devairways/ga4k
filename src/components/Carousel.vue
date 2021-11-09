@@ -51,6 +51,7 @@ export default defineComponent({
     return {
       newsList: [] as NewsItem[],
       eventList: [] as EventItem[],
+      limit: 4,
       pendingRequest: false,
       timestampToDate
     };
@@ -61,7 +62,7 @@ export default defineComponent({
         return;
       }
       this.pendingRequest = true;
-      const newsItems = await ApiController.news.getNewsItemList(5);
+      const newsItems = await ApiController.news.getNewsItemList(this.limit);
 
       if (newsItems?.docs.length) {
         newsItems.docs.map(doc =>
@@ -76,7 +77,7 @@ export default defineComponent({
         return;
       }
       this.pendingRequest = true;
-      const eventItems = await ApiController.events.getEventItemList(5);
+      const eventItems = await ApiController.events.getEventItemList(this.limit);
 
       if (eventItems?.docs.length) {
         eventItems.docs.map(doc =>

@@ -15,7 +15,7 @@
           v-for="user in usersList"
           :key="user.id"
           class="item-card col-12 col-md-3 d-flex justify-content-center"
-          :style="{ backgroundImage: `url(${user.profilePicUrl})` }"
+          :style="{ backgroundImage: `url(${user?.profilePicUrl || 'img/julie.jpg'})` }"
         >
           <div class="item-card-content">
             <h2>{{ user?.name }}</h2>
@@ -75,7 +75,8 @@ export default defineComponent({
     padding: 0;
     &-card {
       height: 400px;
-      min-width: 380px;
+      width: 100%;
+      max-width: 400px;
       width: 400px;
       overflow: hidden;
       filter: grayscale(1);

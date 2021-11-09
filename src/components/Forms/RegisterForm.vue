@@ -90,6 +90,7 @@ export default defineComponent({
         });
         return;
       }
+      this.reg_in_submission = false;
       ElNotification({
         title: "Success",
         message: "The account has been created.",

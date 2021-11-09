@@ -196,5 +196,10 @@ export default defineComponent({
       background-color: rgba($color: #1cb15a8e, $alpha: 0.55);
     }
   }
+  @media screen and (max-width: 767px) {
+    .el-calendar__header {
+      flex-direction: column;
+    }
+  }
 }
 </style>
