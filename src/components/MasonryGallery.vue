@@ -77,6 +77,13 @@ export default defineComponent({
     masonryEvents.forEach(function(event) {
       window.addEventListener(event, self.resizeAllMasonryItems);
     });
+  },
+  beforeUnmount() {
+    var masonryEvents = ["load", "resize"];
+    const self = this;
+    masonryEvents.forEach(function(event) {
+      window.removeEventListener(event, self.resizeAllMasonryItems);
+    });
   }
 });
 </script>

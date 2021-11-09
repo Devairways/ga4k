@@ -131,6 +131,10 @@ export default defineComponent({
       img {
         width: inherit;
       }
+      i {
+        color: #000 !important;
+        cursor: pointer;
+      }
     }
   }
 }

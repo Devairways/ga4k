@@ -1,6 +1,6 @@
 <template>
   <div class="col-11 card mx-auto p-0">
-    <slot name="img"><img class="d-block" src="img/julie.jpg" :alt="itemId"/></slot>
+    <slot name="img"><img class="d-block" src="img/scene.jpg" :alt="itemId"/></slot>
     <div class="card-text">
       <slot name="title">No data found.</slot>
       <slot name="timestamp"></slot>
@@ -40,6 +40,7 @@ export default defineComponent({
 
   img {
     width: 40%;
+    filter: grayscale(1);
   }
 
   p:nth-of-type(2) {
@@ -59,6 +60,31 @@ export default defineComponent({
 
   button {
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 767px) {
+    &-text {
+      color: #fff !important;
+      padding: 10px 30px;
+      width: 100%;
+      z-index: 2;
+    }
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      position: fixed;
+      bottom: 25px;
+    }
+
+    button {
+      cursor: pointer;
+    }
   }
 }
 </style>

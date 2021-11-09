@@ -66,5 +66,9 @@ export default defineComponent({
       width: inherit;
     }
   }
+
+  @media screen and (max-width: 767px) {
+    padding: 0 15px;
+  }
 }
 </style>

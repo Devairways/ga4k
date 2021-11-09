@@ -106,7 +106,7 @@
             }
           "
         >
-          <i class="now-ui-icons design_bullet-list-67"></i>+ Logouts
+          <i class="now-ui-icons design_bullet-list-67"></i>+ Logout
         </router-link>
       </div>
     </li>
