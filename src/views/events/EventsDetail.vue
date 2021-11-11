@@ -4,7 +4,6 @@
       <parallax class="parallax-header-image" style="background-image:url('img/custom.jpg')"
         ><div class="overlay-container"></div>
       </parallax>
-
       <div class="parallax-content-text">
         <h1 class="h1-seo">Events</h1>
       </div>

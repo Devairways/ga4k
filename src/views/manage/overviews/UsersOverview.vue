@@ -76,6 +76,7 @@ export default defineComponent({
     &-card {
       height: 400px;
       width: 100%;
+      min-width: 350px;
       max-width: 400px;
       width: 400px;
       overflow: hidden;

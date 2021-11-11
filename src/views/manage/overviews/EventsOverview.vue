@@ -41,6 +41,7 @@ import { EventItem } from "@/apiServices/interface";
 import { timestampToDate } from "@/plugins/helpers/timeHelpers";
 import { truncateString } from "@/plugins/helpers/stringHelpers";
 import ApiController from "@/apiServices/ApiController";
+import { ElNotification } from "element-plus";
 
 export default defineComponent({
   name: "EventsOverview",
@@ -91,8 +92,13 @@ export default defineComponent({
       this.pendingRequest = false;
     },
     async deleteItem(id: string) {
-      this.eventsList.filter(item => item.id !== id);
+      this.eventsList = this.eventsList.filter(item => item.id !== id);
       await ApiController.events.deleteEventItem(id);
+      ElNotification({
+        title: "Success",
+        message: "Deleted eventitem",
+        type: "success"
+      });
     }
   },
 

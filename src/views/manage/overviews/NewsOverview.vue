@@ -41,6 +41,7 @@ import { NewsItem } from "@/apiServices/interface";
 import { timestampToDate } from "@/plugins/helpers/timeHelpers";
 import { truncateString } from "@/plugins/helpers/stringHelpers";
 import ApiController from "@/apiServices/ApiController";
+import { ElNotification } from "element-plus";
 
 export default defineComponent({
   name: "NewsOverview",
@@ -87,8 +88,13 @@ export default defineComponent({
       this.pendingRequest = false;
     },
     async deleteItem(id: string) {
-      this.newsList.filter(item => item.id !== id);
+      this.newsList = this.newsList.filter(item => item.id !== id);
       await ApiController.news.deleteNewsItem(id);
+      ElNotification({
+        title: "Success",
+        message: "Deleted newsitem",
+        type: "success"
+      });
     }
   },
 
