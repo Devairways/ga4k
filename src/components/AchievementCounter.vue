@@ -7,11 +7,7 @@
   >
     <div class="col-6 col-md-3">
       <div class="form-group">
-        <i
-          v-if="editable && inEditMode !== 'milesCount'"
-          class="fas fa-edit col-1"
-          @click="edit('milesCount')"
-        ></i>
+        <i v-if="editable" class="fas fa-edit col-1" @click="edit('milesCount')"></i>
         <input
           v-if="inEditMode === 'milesCount'"
           type="number"
@@ -26,11 +22,7 @@
     </div>
     <div class="col-6 col-md-3">
       <div class="form-group">
-        <i
-          v-if="editable && inEditMode !== 'clientsCount'"
-          class="fas fa-edit col-1"
-          @click="edit('clientsCount')"
-        ></i>
+        <i v-if="editable" class="fas fa-edit col-1" @click="edit('clientsCount')"></i>
         <input
           v-if="inEditMode === 'clientsCount'"
           type="number"
@@ -45,11 +37,7 @@
     </div>
     <div class="col-6 col-md-3">
       <div class="form-group">
-        <i
-          v-if="editable && inEditMode !== 'eventsCount'"
-          class="fas fa-edit col-1"
-          @click="edit('eventsCount')"
-        ></i>
+        <i v-if="editable" class="fas fa-edit col-1" @click="edit('eventsCount')"></i>
         <input
           v-if="inEditMode === 'eventsCount'"
           type="number"
@@ -64,11 +52,7 @@
     </div>
     <div class="col-6 col-md-3">
       <div class="form-group">
-        <i
-          v-if="editable && inEditMode !== 'donationsCount'"
-          class="fas fa-edit col-1"
-          @click="edit('donationsCount')"
-        ></i>
+        <i v-if="editable" class="fas fa-edit col-1" @click="edit('donationsCount')"></i>
         <input
           v-if="inEditMode === 'donationsCount'"
           type="number"
@@ -86,6 +70,7 @@
 
 <script lang="ts">
 import ApiController from "@/apiServices/ApiController";
+import { ElNotification } from "element-plus";
 import { defineComponent } from "vue";
 
 export interface MainAchievements {
@@ -125,6 +110,11 @@ export default defineComponent({
     },
     async updateAchievementData(field: string, updatedValue: number) {
       await ApiController.data.updateAchievementData(field, updatedValue);
+      ElNotification({
+        title: "Success",
+        message: "Updated achievementcounter field",
+        type: "success"
+      });
     },
     async getAchievementsData() {
       const main_achievements = await ApiController.data.getAchievementsData();
@@ -202,11 +192,14 @@ input {
   width: 80% !important;
   margin: auto !important;
   margin-top: 10px !important;
+  z-index: 2;
 }
 i {
   position: absolute;
   right: 70px;
   cursor: pointer;
+  top: 10px;
+
   &[class="fas fa-times col-1"] {
     top: -5px;
   }

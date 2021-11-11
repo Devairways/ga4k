@@ -41,7 +41,7 @@
               </p>
             </div>
             <div class="col-10 col-md-4 d-none d-md-block info-card">
-              <img src="img/ryan.jpg" alt="" />
+              <img src="img/black_trike.jpg" alt="" />
             </div>
           </div>
           <div class="col-md-12 row info mx-auto">
@@ -88,21 +88,11 @@
               Ons kantoor is gelegen in Spijkenisse nabij Rotterdam.
             </p>
             <ul class="pl-3">
+              <li><i class="fas fa-map-marker-alt"></i> Junopad 5, Spijkenisse</li>
+              <li><i class="fas fa-mobile-alt"></i> +31612345678</li>
+              <li><i class="far fa-envelope"></i> GA@4kids.nl</li>
               <li>
-                <nav-link to="/">
-                  <i class="fas fa-map-marker-alt"></i> Junopad 5, Spijkenisse
-                </nav-link>
-              </li>
-              <li>
-                <nav-link to="/"> <i class="fas fa-mobile-alt"></i> +31612345678 </nav-link>
-              </li>
-              <li>
-                <nav-link to="/"> <i class="far fa-envelope"></i> GA@4kids.nl </nav-link>
-              </li>
-              <li>
-                <nav-link to="/">
-                  KVK: 1234567
-                </nav-link>
+                KVK: 1234567
               </li>
             </ul>
           </div>
@@ -121,12 +111,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { Parallax, Carousel, AchievementCounter, ContactForm, NavLink } from "@/components";
+import { Parallax, Carousel, AchievementCounter, ContactForm } from "@/components";
 import router from "@/router";
 
 export default defineComponent({
   name: "Home",
-  components: { Parallax, Carousel, AchievementCounter, ContactForm, NavLink },
+  components: { Parallax, Carousel, AchievementCounter, ContactForm },
   methods: {
     redirect(route: string) {
       router.push(route);
@@ -158,6 +148,10 @@ export default defineComponent({
       overflow: hidden;
       padding: 0;
 
+      @media screen and (max-width: 767px) {
+        width: 240px;
+      }
+
       &-overlay {
         position: absolute;
         top: 0;
@@ -177,10 +171,6 @@ export default defineComponent({
     font-size: 45px;
     font-weight: 400;
     line-height: 10px;
-
-    @media screen and (max-width: 767px) {
-      font-size: 33px;
-    }
   }
 }
 </style>

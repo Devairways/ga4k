@@ -54,7 +54,7 @@
 import { defineComponent } from "vue";
 import { Parallax, Carousel, AchievementCounter } from "@/components";
 import { NewsItem } from "@/apiServices/interface";
-import { newsCollection, storage } from "@/plugins/firebase";
+import { storage } from "@/plugins/firebase";
 import { timestampToDate } from "@/plugins/helpers/timeHelpers";
 import ApiController from "@/apiServices/ApiController";
 
@@ -77,10 +77,10 @@ export default defineComponent({
       }
       try {
         this.pendingRequest = true;
-        const newsItem = await ApiController.news.getNewsItem(this.itemId);
+        const newsItem = await ApiController.news.getNewsItem(newsItemId);
 
         if (newsItem) {
-          this.newsDetail = ({ ...newsItem, id: newsItem.id } as unknown) as NewsItem;
+          this.newsDetail = ({ ...newsItem, id: newsItemId } as unknown) as NewsItem;
         }
       } catch (error) {
         console.warn(error);
