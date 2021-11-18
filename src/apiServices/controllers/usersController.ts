@@ -20,12 +20,21 @@ export const getUserData = async (id: string) => {
 
 export const getAllUsers = async (pageLimit: number, lastestDoc?: Record<string, unknown>) => {
   try {
-    const items = await newsCollection
-      .orderBy("createdAt", "desc")
-      .startAfter(lastestDoc)
-      .limit(pageLimit)
-      .get();
-    return items;
+    const items = lastestDoc
+      ? await usersCollection
+          .orderBy("memberSince", "desc")
+          .startAfter(lastestDoc)
+          .limit(pageLimit)
+          .get()
+      : await usersCollection
+          .orderBy("memberSince", "desc")
+          .limit(pageLimit)
+          .get();
+
+    console.log(items.docs);
+    if (items) {
+      return items;
+    }
   } catch (error) {
     ElNotification({
       title: "Failed",

@@ -13,6 +13,7 @@ import NavLink from "./Navbar/NavLink.vue";
 import NavbarToggleButton from "./Navbar/NavbarToggleButton.vue";
 import Parallax from "./Parallax/Parallax.vue";
 import ProfileForm from "./Forms/ProfileForm.vue";
+import ProfileCard from "./ProfileCard.vue";
 import RegisterForm from "./Forms/RegisterForm.vue";
 import Tabs from "./Tabs.vue";
 
@@ -32,6 +33,7 @@ export {
   NavItems,
   Parallax,
   ProfileForm,
+  ProfileCard,
   RegisterForm,
   Tabs
 };

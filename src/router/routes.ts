@@ -1,51 +1,74 @@
 import { RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 
+export enum AppRouteNames {
+  Home = "Home",
+  Profile = "Profile",
+  Register = "Register",
+  About = "About",
+  Partners = "Partners",
+  Manage = "Manage",
+  News = "News",
+  AddNews = "AddNews",
+  NewsDetail = "NewsDetail",
+  EditNews = "EditNews",
+  Events = "Events",
+  AddEvents = "AddEvents",
+  EventsHistory = "EventsHistory",
+  EventsDetail = "EventsDetail",
+  EditEvents = "EditEvents"
+}
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "Home",
+    name: AppRouteNames.Home,
     component: Home
   },
   {
     path: "/profile",
-    name: "Profile",
+    name: AppRouteNames.Profile,
     component: () => import("../views/user/Profile.vue")
   },
   {
     path: "/register",
-    name: "Register",
+    name: AppRouteNames.Register,
     component: () => import("../views/user/RegisterUser.vue")
   },
   {
     path: "/about",
-    name: "About",
-    component: () => import(/* webpackChunkName: "about" */ "../views/About.vue")
+    name: AppRouteNames.About,
+    component: () => import(/* webpackChunkName: "about" */ "../views/about/About.vue")
+  },
+  {
+    path: "/partners",
+    name: AppRouteNames.Partners,
+    component: () => import(/* webpackChunkName: "about" */ "../views/about/Partners.vue")
   },
   {
     path: "/manage",
-    name: "Manage",
+    name: AppRouteNames.Manage,
     component: () => import(/* webpackChunkName: "manage" */ "../views/manage/Manage.vue")
   },
   {
     path: "/news",
-    name: "News",
+    name: AppRouteNames.News,
     component: () => import(/* webpackChunkName: "news" */ "../views/news/News.vue")
   },
   {
     path: "/news/add",
-    name: "AddNews",
+    name: AppRouteNames.AddNews,
     component: () => import(/* webpackChunkName: "news" */ "../views/news/AddOrUpdateNewsItem.vue")
   },
   {
     path: "/news/:itemId",
-    name: "NewsDetail",
+    name: AppRouteNames.NewsDetail,
     props: true,
     component: () => import(/* webpackChunkName: "news" */ "../views/news/NewsDetail.vue")
   },
   {
     path: "/news/edit/:itemId",
-    name: "EditNews",
+    name: AppRouteNames.EditNews,
     props: route => ({
       newsItemId: route.params.itemId,
       edit: true
@@ -55,29 +78,29 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/events",
-    name: "Events",
+    name: AppRouteNames.Events,
     component: () => import(/* webpackChunkName: "events" */ "../views/events/Events.vue")
   },
   {
     path: "/eventshistory",
-    name: "EventsHistory",
+    name: AppRouteNames.EventsHistory,
     component: () => import(/* webpackChunkName: "events" */ "../views/events/EventsHistory.vue")
   },
   {
     path: "/events/add",
-    name: "AddEvents",
+    name: AppRouteNames.AddEvents,
     component: () =>
       import(/* webpackChunkName: "events" */ "../views/events/AddOrUpdateEventItem.vue")
   },
   {
     path: "/events/:itemId",
-    name: "EventsDetail",
+    name: AppRouteNames.EventsDetail,
     props: true,
     component: () => import(/* webpackChunkName: "events" */ "../views/events/EventsDetail.vue")
   },
   {
     path: "/events/edit/:itemId",
-    name: "EditEvent",
+    name: AppRouteNames.EditEvents,
     props: route => ({
       eventItemId: route.params.itemId,
       edit: true

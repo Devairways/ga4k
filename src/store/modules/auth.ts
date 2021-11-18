@@ -36,7 +36,9 @@ export default {
         name: payload.name,
         email: payload.email,
         age: payload.age,
-        country: payload.country
+        country: payload.country,
+        role: payload.role,
+        memberSince: payload.memberSince
       });
 
       await userCred.user?.updateProfile({

@@ -21,16 +21,11 @@
       </router-link>
     </drop-down>
     <drop-down tag="li" title="Over ons" icon="fa fa-building" class="nav-item">
-      <router-link to="/" class="dropdown-item">
-        <i class="now-ui-icons business_chart-pie-36"></i> Over ons
+      <router-link to="/about" class="dropdown-item">
+        <i class="now-ui-icons business_chart-pie-36"></i> Over ons </router-link
+      ><router-link to="/partners" class="dropdown-item">
+        <i class="now-ui-icons design_bullet-list-67"></i> Partners
       </router-link>
-      <a
-        href="https://demos.creative-tim.com/vue-now-ui-kit/documentation"
-        target="_blank"
-        class="dropdown-item"
-      >
-        <i class="now-ui-icons design_bullet-list-67"></i> Documentation
-      </a>
     </drop-down>
     <li class="nav-item" v-if="!userLoggedIn">
       <router-link class="nav-link" to="/" @click.prevent="toggleAuthModal">
@@ -73,7 +68,7 @@
         <router-link class="nav-link" to="/about" @click.stop="closeNav">
           <i class="now-ui-icons business_chart-pie-36"></i>+ Over ons
         </router-link>
-        <router-link class="nav-link" to="/" @click.stop="closeNav">
+        <router-link class="nav-link" to="/partners" @click.stop="closeNav">
           <i class="now-ui-icons design_bullet-list-67"></i>+ Documentatie
         </router-link>
       </div>

@@ -11,19 +11,7 @@
         ></router-link>
       </div>
       <div class="item row">
-        <div
-          v-for="user in usersList"
-          :key="user.id"
-          class="item-card col-12 col-md-3 d-flex justify-content-center"
-          :style="{ backgroundImage: `url(${user?.profilePicUrl || 'img/julie.jpg'})` }"
-        >
-          <div class="item-card-content">
-            <h2>{{ user?.name }}</h2>
-            <p class="description m-0">{{ user?.email }}</p>
-            <p>{{ user?.phone }}</p>
-            <p>{{ user?.country }}</p>
-          </div>
-        </div>
+        <profile-card v-for="user in usersList" :key="user.id" :user="user"> </profile-card>
       </div>
     </div>
   </div>
@@ -34,9 +22,11 @@ import { defineComponent } from "vue";
 import { usersCollection } from "@/plugins/firebase";
 import { UserData } from "@/apiServices/interface";
 import { timestampToDate } from "@/plugins/helpers/timeHelpers";
+import { ProfileCard } from "@/components";
 
 export default defineComponent({
   name: "UsersOverview",
+  components: { ProfileCard },
   data() {
     return {
       usersList: [] as UserData[],
