@@ -1,5 +1,10 @@
 <template>
-  <vee-form :validation-schema="schema" @submit="submit" class="form" :initial-values="userData">
+  <vee-form
+    :validation-schema="schema"
+    @submit="submitContactForm"
+    class="form"
+    :initial-values="userData"
+  >
     <div class="form-group">
       <vee-field class="input" type="text" name="name" placeholder="Naam" />
       <ErrorMessage class="alert" name="name" />
@@ -9,9 +14,10 @@
       <ErrorMessage class="alert" name="email" />
     </div>
     <div class="form-group">
-      <textarea placeholder="Bericht" rows="5" class="input" name="body"></textarea>
+      <textarea placeholder="Bericht" rows="5" class="input" name="body" v-model="body"></textarea>
       <ErrorMessage class="alert" name="body" />
     </div>
+    <p v-if="reg_show_alert">{{ reg_alert_msg }}</p>
     <button type="submit" :disabled="reg_in_submission" class="button">
       Verzend
     </button>
@@ -19,6 +25,8 @@
 </template>
 
 <script lang="ts">
+import ApiController from "@/apiServices/ApiController";
+import { FormActions } from "vee-validate";
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -27,21 +35,37 @@ export default defineComponent({
     return {
       schema: {
         name: "required|min:3|max:100|alpha_spaces",
-        email: "required|min:3|max:100|email",
-        body: "required|min:0|max:3000"
+        email: "required|min:3|max:100|email"
       },
-      userData: {
-        country: "USA"
-      },
+      body: "",
       reg_in_submission: false,
       reg_show_alert: false,
-      reg_alert_msg: "Please wait! Your account is being created."
+      reg_alert_msg: "Bericht is verzonden!"
     };
   },
   methods: {
-    submit() {
-      console.log("sending message");
+    async submitContactForm(
+      values: { name: string; email: string },
+      { resetForm }: FormActions<Record<string, unknown>>
+    ) {
+      const { name, email } = values;
+      this.reg_in_submission = true;
+
+      const submitResponse = await ApiController.data.submitContactForm(name, email, this.body);
+      this.reg_in_submission = false;
+
+      if (submitResponse) {
+        this.reg_show_alert = true;
+        this.body = "";
+        resetForm();
+      }
     }
   }
 });
 </script>
+
+<style lang="scss" scoped>
+p {
+  color: green;
+}
+</style>

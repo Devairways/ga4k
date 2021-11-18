@@ -146,7 +146,7 @@ export default defineComponent({
     &-card {
       max-height: 300px;
       overflow: hidden;
-      padding: 0;
+      padding: 10px 0;
 
       @media screen and (max-width: 767px) {
         width: 240px;
@@ -170,7 +170,7 @@ export default defineComponent({
   .title {
     font-size: 45px;
     font-weight: 400;
-    line-height: 10px;
+    padding-top: 0;
   }
 }
 </style>

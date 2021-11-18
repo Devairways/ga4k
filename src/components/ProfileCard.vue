@@ -35,10 +35,9 @@ export default defineComponent({
   padding: 0;
   &-card {
     height: 400px;
-    width: 100%;
     min-width: 350px;
+    width: 100%;
     max-width: 400px;
-    width: 400px;
     overflow: hidden;
     filter: grayscale(1);
 

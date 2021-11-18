@@ -25,10 +25,10 @@
                 </router-link>
               </li>
               <li>
-                <router-link to="/">
+                <a href="mailto: info@guardianangels4kids.nl">
                   <i class="far fa-envelope special_icon"></i>
-                  GA@4kids.nl
-                </router-link>
+                  info@guardianangels4kids.nl
+                </a>
               </li>
               <li>
                 <router-link to="/">
@@ -94,7 +94,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name:"MainFooter",
+  name: "MainFooter",
   props: {
     backgroundColor: String,
     type: String
