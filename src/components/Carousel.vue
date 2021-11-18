@@ -1,5 +1,5 @@
 <template>
-  <el-carousel v-if="listToRender.length" :type="type">
+  <el-carousel v-if="listToRender.length" :type="carouselType">
     <el-carousel-item v-for="item in listToRender" :key="item.id">
       <card :linkToItem="`/${fetchType.toLowerCase()}/${item.id}`"
         ><template v-slot:img
@@ -88,6 +88,12 @@ export default defineComponent({
     }
   },
   computed: {
+    carouselType() {
+      if (window.innerWidth < 767) {
+        return "";
+      }
+      return this.type;
+    },
     listToRender() {
       if (this.fetchType === FetchType.Events) {
         return this.eventList;

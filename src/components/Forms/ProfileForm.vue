@@ -40,16 +40,19 @@
       />
       <ErrorMessage class="alert" name="phone" />
     </div>
-    <!-- Age -->
     <div class="form-group">
       <vee-field
-        type="number"
-        name="age"
+        as="select"
+        name="role"
         class="input"
         :class="editMode ? 'readonly' : ''"
         :readonly="!editMode"
-      />
-      <ErrorMessage class="alert" name="age" />
+      >
+        <option value="Founder">Oprichter</option>
+        <option value="Member">Lid</option>
+        <option value="Associate">Partner</option>
+      </vee-field>
+      <ErrorMessage class="alert" name="role" />
     </div>
     <!-- Country -->
     <div class="form-group">
@@ -117,13 +120,13 @@ export default defineComponent({
       schema: {
         name: "required|min:3|max:100|alpha_spaces",
         email: "required|min:3|max:100|email",
-        age: "required|min_value:18|max_value:100",
+        role: "required",
         password: "min:3|max:100",
         confirm_password: "passwords_mismatch:@password",
         country: "required|country_excluded:Antarctica"
       },
       userData: {
-        age: "",
+        role: "",
         country: "",
         email: "",
         name: "",
@@ -153,8 +156,8 @@ export default defineComponent({
     },
     async updateUserInfo(val: UserData) {
       if (!this.editMode) return;
-      const { age, name, country, email, phone } = val;
-      await ApiController.user.updateUserData(this.userId, { age, name, country, email, phone });
+      const { role, name, country, email, phone } = val;
+      await ApiController.user.updateUserData(this.userId, { role, name, country, email, phone });
       ElNotification({
         title: "Success",
         message: "Successfully updated profile.",

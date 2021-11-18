@@ -5,7 +5,7 @@
         ><div class="overlay-container"></div>
       </parallax>
       <div class="parallax-content-text">
-        <h1 class="h1-seo">Nieuws</h1>
+        <h1 class="h1-seo">Events</h1>
       </div>
     </div>
     <div class="section">

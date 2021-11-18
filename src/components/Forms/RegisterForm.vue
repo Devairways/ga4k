@@ -14,10 +14,6 @@
       <ErrorMessage class="alert" name="email" />
     </div>
     <div class="form-group col-12 col-md-6">
-      <vee-field type="number" name="age" class="input" />
-      <ErrorMessage class="alert" name="age" />
-    </div>
-    <div class="form-group col-12 col-md-6">
       <vee-field as="select" name="country" class="input">
         <option value="USA">USA</option>
         <option value="Mexico">Mexico</option>
@@ -71,14 +67,12 @@ export default defineComponent({
       schema: {
         name: "required|min:3|max:100|alpha_spaces",
         email: "required|min:3|max:100|email",
-        age: "required|min_value:18|max_value:100",
         password: "required|min:3|max:100",
         confirm_password: "passwords_mismatch:@password",
         country: "required|country_excluded:Antarctica",
         role: "required"
       },
       userData: {
-        age: 0,
         country: "USA",
         memberSince: new Date()
       },

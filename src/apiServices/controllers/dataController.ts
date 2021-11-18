@@ -45,3 +45,33 @@ export const updateAchievementData = async (field: string, updatedValue: number)
     console.warn(error);
   }
 };
+
+export const submitContactForm = async (name: string, email: string, msg: string) => {
+  try {
+    const res = await fetch("https://formsubmit.co/ajax/01b0629fe5fd1fbfa97556e706263a0f", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        Naam: name,
+        Email: email,
+        Bericht: msg
+      })
+    });
+    const responseObj = await res.json();
+
+    if (responseObj.success.includes("true")) {
+      return true;
+    }
+    return false;
+  } catch (error) {
+    ElNotification({
+      title: "Failed",
+      message: "Could not send message",
+      type: "error"
+    });
+    console.warn(error);
+  }
+};

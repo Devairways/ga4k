@@ -35,7 +35,6 @@ export default {
       await usersCollection.doc(userCred.user?.uid).set({
         name: payload.name,
         email: payload.email,
-        age: payload.age,
         country: payload.country,
         role: payload.role,
         memberSince: payload.memberSince
