@@ -12,6 +12,7 @@
     <ul class="navbar-nav" :class="{ 'd-flex': !isPortableDevice, 'navbar-nav-open': showMenu }">
       <slot name="navbar-menu"></slot>
     </ul>
+    <slot></slot>
   </nav>
 </template>
 

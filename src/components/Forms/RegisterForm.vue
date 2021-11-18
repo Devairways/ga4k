@@ -27,6 +27,14 @@
       <ErrorMessage class="alert" name="country" />
     </div>
     <div class="form-group col-12 col-md-6">
+      <vee-field as="select" name="role" class="input">
+        <option value="Founder">Oprichter</option>
+        <option value="Member">Lid</option>
+        <option value="Associate">Partner</option>
+      </vee-field>
+      <ErrorMessage class="alert" name="country" />
+    </div>
+    <div class="form-group col-12 col-md-6">
       <vee-field name="password" :bails="false" v-slot="{ field, errors }">
         <input class="input" type="password" placeholder="Wachtwoord" v-bind="field" />
         <div class="alert" v-for="error in errors" :key="error">
@@ -66,11 +74,13 @@ export default defineComponent({
         age: "required|min_value:18|max_value:100",
         password: "required|min:3|max:100",
         confirm_password: "passwords_mismatch:@password",
-        country: "required|country_excluded:Antarctica"
+        country: "required|country_excluded:Antarctica",
+        role: "required"
       },
       userData: {
         age: 0,
-        country: "USA"
+        country: "USA",
+        memberSince: new Date()
       },
       reg_in_submission: false
     };
