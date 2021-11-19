@@ -5,6 +5,7 @@ import { ActionContext } from "vuex";
 export interface StateType {
   authModalShow: boolean;
   userLoggedIn: boolean;
+  userRole: string;
   userId: string;
 }
 
@@ -12,6 +13,7 @@ export default {
   state: {
     authModalShow: false,
     userLoggedIn: false,
+    userRole: "",
     userId: ""
   },
   mutations: {
@@ -23,6 +25,9 @@ export default {
     },
     storeUserId(state: StateType, id: string): void {
       state.userId = id;
+    },
+    storeUserRole(state: StateType, role: string): void {
+      state.userRole = role;
     }
   },
   actions: {
@@ -45,18 +50,32 @@ export default {
       });
     },
     async login(
-      { commit }: ActionContext<StateType, Record<string, string>>,
+      { commit, dispatch }: ActionContext<StateType, Record<string, string>>,
       payload: Record<string, any>
     ): Promise<void> {
       const userCred = await auth.signInWithEmailAndPassword(payload.email, payload.password);
       commit("storeUserId", userCred.user?.uid);
+      dispatch("getUserRole", { userId: userCred.user?.uid });
+
       commit("toggleAuth");
     },
-    init_login({ commit }: ActionContext<StateType, Record<string, string>>): void {
+    init_login({ commit, dispatch }: ActionContext<StateType, Record<string, string>>): void {
       const user = auth.currentUser;
       if (user) {
         commit("storeUserId", user.uid);
+        dispatch("getUserRole", { userId: user.uid });
+
         commit("toggleAuth");
+      }
+    },
+    async getUserRole(
+      { commit }: ActionContext<StateType, Record<string, string>>,
+      payload: { userId: string }
+    ): Promise<void> {
+      const user = (await usersCollection.doc(payload.userId).get()).data() as UserData;
+
+      if (user) {
+        commit("storeUserRole", user?.role);
       }
     },
     async signout({ commit }: ActionContext<StateType, Record<string, string>>): Promise<void> {

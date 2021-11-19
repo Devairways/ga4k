@@ -28,12 +28,14 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/profile",
     name: AppRouteNames.Profile,
-    component: () => import("../views/user/Profile.vue")
+    component: () => import("../views/user/Profile.vue"),
+    meta: { requiresLogin: true }
   },
   {
     path: "/register",
     name: AppRouteNames.Register,
-    component: () => import("../views/user/RegisterUser.vue")
+    component: () => import("../views/user/RegisterUser.vue"),
+    meta: { requiresLogin: true }
   },
   {
     path: "/about",
@@ -48,7 +50,8 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/manage",
     name: AppRouteNames.Manage,
-    component: () => import(/* webpackChunkName: "manage" */ "../views/manage/Manage.vue")
+    component: () => import(/* webpackChunkName: "manage" */ "../views/manage/Manage.vue"),
+    meta: { requiresLogin: true }
   },
   {
     path: "/news",
@@ -58,7 +61,8 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/news/add",
     name: AppRouteNames.AddNews,
-    component: () => import(/* webpackChunkName: "news" */ "../views/news/AddOrUpdateNewsItem.vue")
+    component: () => import(/* webpackChunkName: "news" */ "../views/news/AddOrUpdateNewsItem.vue"),
+    meta: { requiresLogin: true }
   },
   {
     path: "/news/:itemId",
@@ -74,7 +78,8 @@ const routes: Array<RouteRecordRaw> = [
       edit: true
     }),
     component: () =>
-      import(/* webpackChunkName: "manage" */ "../views/news/AddOrUpdateNewsItem.vue")
+      import(/* webpackChunkName: "manage" */ "../views/news/AddOrUpdateNewsItem.vue"),
+    meta: { requiresLogin: true }
   },
   {
     path: "/events",
@@ -90,7 +95,8 @@ const routes: Array<RouteRecordRaw> = [
     path: "/events/add",
     name: AppRouteNames.AddEvents,
     component: () =>
-      import(/* webpackChunkName: "events" */ "../views/events/AddOrUpdateEventItem.vue")
+      import(/* webpackChunkName: "events" */ "../views/events/AddOrUpdateEventItem.vue"),
+    meta: { requiresLogin: true }
   },
   {
     path: "/events/:itemId",
@@ -106,7 +112,8 @@ const routes: Array<RouteRecordRaw> = [
       edit: true
     }),
     component: () =>
-      import(/* webpackChunkName: "manage" */ "../views/events/AddOrUpdateEventItem.vue")
+      import(/* webpackChunkName: "manage" */ "../views/events/AddOrUpdateEventItem.vue"),
+    meta: { requiresLogin: true }
   }
 ];
 

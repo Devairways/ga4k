@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import routes from "./routes";
+import store from "../store/index";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -9,6 +10,14 @@ const router = createRouter({
       return scrollPosition;
     }
     return { left: 0, top: 0 };
+  }
+});
+
+router.beforeEach((to, _, next) => {
+  if (to.matched.some(record => record.meta.requiresLogin) && !store.state.userLoggedIn) {
+    next("/");
+  } else {
+    next();
   }
 });
 
