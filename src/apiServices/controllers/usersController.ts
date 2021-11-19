@@ -31,7 +31,6 @@ export const getAllUsers = async (pageLimit: number, lastestDoc?: Record<string,
           .limit(pageLimit)
           .get();
 
-    console.log(items.docs);
     if (items) {
       return items;
     }
@@ -67,5 +66,25 @@ export const deleteUser = async (id: string) => {
       message: "Could not delete user",
       type: "error"
     });
+  }
+};
+
+export const getFounders = async (pageLimit: number) => {
+  try {
+    const items = await usersCollection
+      .where("role", "==", "Founder")
+      .limit(pageLimit)
+      .get();
+
+    if (items) {
+      return items;
+    }
+  } catch (error) {
+    ElNotification({
+      title: "Failed",
+      message: "Could not retrieve users",
+      type: "error"
+    });
+    console.warn(error);
   }
 };

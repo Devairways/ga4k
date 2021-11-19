@@ -82,8 +82,12 @@ body {
 
 .GA-logo {
     max-width: 335px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     width: 85%;
+
+    @media screen and (max-width: 767px) {
+        margin-bottom: 25px;
+      }
 }
 
 .h1-seo{
@@ -92,6 +96,7 @@ body {
     font-size: 120px;
     font-weight: 400;
     @media screen and (max-width:767px) {
+        padding-top: 25px;
         font-size: 90px;
     }
 }

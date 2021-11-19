@@ -23,13 +23,38 @@
       </div>
     </div>
     <div class="section p-0">
-      <div class="container-bg-grey d-flex flex-column">
-        <h2 class="title mr-auto">Oprichters</h2>
-        <div>
-          <div class="col-md-12 row info mx-auto">
-            <div v-for="user in usersList" :key="user.id" class="col-10 col-md-4 info-card">
-              <profile-card :user="user"></profile-card>
-            </div>
+      <div class="container-bg-grey pb-4 d-flex flex-column">
+        <h2 class="title ml-4 mr-auto">Oprichters</h2>
+        <div class="col-12 row info mx-auto">
+          <div v-for="user in usersList" :key="user.id" class="info-card">
+            <profile-card :user="user"></profile-card>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="col-12 col-lg-10 row">
+          <div class="col-12 col-lg-6 mx-auto">
+            <h2 class="title">Locatie Zuid-Holland</h2>
+            <p class="description mb-4">
+              Ons kantoor is gelegen in Spijkenisse nabij Rotterdam.
+            </p>
+            <ul class="pl-3">
+              <li><i class="fas fa-map-marker-alt"></i> Junopad 5, Spijkenisse</li>
+              <li><i class="fas fa-mobile-alt"></i> +31612345678</li>
+              <li><i class="far fa-envelope"></i> GA@4kids.nl</li>
+              <li>
+                KVK: 1234567
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-6 mx-auto ">
+            <h2 class="title">Klaar om te rijden?</h2>
+            <p class="description mb-4">
+              Neem dan contact met ons op via onderstaand formulier.
+            </p>
+            <ContactForm />
           </div>
         </div>
       </div>
@@ -38,16 +63,15 @@
 </template>
 
 <script lang="ts">
-import { Parallax } from "@/components";
 import { defineComponent } from "@vue/runtime-core";
 import { timestampToDate } from "@/plugins/helpers/timeHelpers";
-import { ProfileCard } from "@/components";
+import { Parallax, ProfileCard, ContactForm } from "@/components";
 import { UserData } from "@/apiServices/interface";
 import ApiController from "@/apiServices/ApiController";
 
 export default defineComponent({
   name: "About",
-  components: { Parallax, ProfileCard },
+  components: { Parallax, ProfileCard, ContactForm },
   data() {
     return {
       usersList: [] as UserData[],
@@ -62,7 +86,7 @@ export default defineComponent({
       }
 
       this.pendingRequest = true;
-      const users = await ApiController.user.getAllUsers(3);
+      const users = await ApiController.user.getFounders(4);
 
       users?.docs.map(doc =>
         this.usersList.push(({ id: doc.id, ...doc?.data() } as unknown) as UserData)
@@ -80,27 +104,26 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 #about {
-  .brand {
-    &-established {
-      font-size: 60px;
-      font-weight: 700;
-      line-height: 5px;
-    }
-
-    &-label {
-      font-size: 45px;
-      font-weight: 400;
-      font-family: "GothRough";
-    }
-  }
-
   .info {
     padding: 0;
+    margin-bottom: 20px;
+
     &-card {
+      width: 25%;
       padding: 0;
 
+      .item-card {
+        background-position: center;
+        background-size: cover;
+        max-width: 512px;
+      }
+
+      @media screen and (min-width: 768px) and (max-width: 1024px) {
+        width: 50%;
+      }
+
       @media screen and (max-width: 767px) {
-        width: 240px;
+        width: 100%;
       }
 
       img {
@@ -112,7 +135,7 @@ export default defineComponent({
   .title {
     font-size: 45px;
     font-weight: 400;
-    line-height: 10px;
+    padding: 0;
   }
 }
 </style>

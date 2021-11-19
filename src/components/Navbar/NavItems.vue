@@ -69,7 +69,7 @@
           <i class="now-ui-icons business_chart-pie-36"></i>+ Over ons
         </router-link>
         <router-link class="nav-link" to="/partners" @click.stop="closeNav">
-          <i class="now-ui-icons design_bullet-list-67"></i>+ Documentatie
+          <i class="now-ui-icons design_bullet-list-67"></i>+ Partners
         </router-link>
       </div>
     </li>

@@ -63,41 +63,6 @@ export default defineComponent({
   width: 100%;
   .item {
     padding: 0;
-    &-card {
-      height: 400px;
-      width: 100%;
-      min-width: 350px;
-      max-width: 400px;
-      width: 400px;
-      overflow: hidden;
-      filter: grayscale(1);
-
-      @media screen and (max-width: 767px) {
-        margin: auto;
-      }
-
-      &-content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(255, 255, 255, 0.85);
-        box-shadow: inset 0 0 0 0 rgba(21, 21, 21, 0.85);
-        opacity: 0;
-        box-sizing: border-box;
-        transition: opacity 0.4s, box-shadow 0.3s ease;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        &:hover {
-          opacity: 1;
-          box-shadow: inset 0 0 0 15px rgba(21, 21, 21, 0.85);
-        }
-      }
-    }
   }
 }
 </style>

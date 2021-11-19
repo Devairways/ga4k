@@ -11,7 +11,7 @@
     <div class="main">
       <div class="section">
         <div class="container flex-column">
-          <div class="col-10 row mx-auto">
+          <div class="col-12 col-md-10 row mx-auto">
             <div v-if="newsDetail.id" class="col-12">
               <h1 class="title">{{ newsDetail.title }}</h1>
               <p class="description m-2">{{ timestampToDate(newsDetail.createdAt) }}</p>

@@ -146,10 +146,11 @@ export default defineComponent({
     &-card {
       max-height: 300px;
       overflow: hidden;
-      padding: 10px 0;
+      padding: 0;
 
       @media screen and (max-width: 767px) {
         width: 240px;
+        padding: 10px 0;
       }
 
       &-overlay {
