@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import routes from "./routes";
-import store from "../store/index";
+import store from "@/store";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -14,7 +14,8 @@ const router = createRouter({
 });
 
 router.beforeEach((to, _, next) => {
-  if (to.matched.some(record => record.meta.requiresLogin) && !store.state.userLoggedIn) {
+  const userLoggedIn = store.getters["userLoggedIn"];
+  if (to.matched.some(record => record.meta.requiresLogin) && !userLoggedIn) {
     next("/");
   } else {
     next();

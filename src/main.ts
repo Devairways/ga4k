@@ -6,14 +6,15 @@ import mitt from "mitt";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const VueMasonryPlugin = require("vue-masonry/src/masonry-vue3.plugin").VueMasonryPlugin;
 import { auth } from "./plugins/firebase";
-import router from "./router";
 import store from "./store";
+import router from "./router";
 import ElementPlus from "element-plus";
 import VeeValidate from "./plugins/validation";
 import "element-plus/dist/index.css";
 import "@/assets/scss/imports.scss";
 import GlobalDirectives from "./plugins/globalDirectives";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let app: any;
 
 auth.onAuthStateChanged(() => {

@@ -82,10 +82,11 @@ export default {
       await auth.signOut();
 
       commit("toggleAuth");
-
-      // if (payload.route.meta.requiresAuth) {
-      //   payload.router.push({ name: 'home' });
-      // }
+    }
+  },
+  getters: {
+    userLoggedIn(state: { userLoggedIn: boolean }): boolean {
+      return state.userLoggedIn;
     }
   }
 };

@@ -114,6 +114,10 @@ const routes: Array<RouteRecordRaw> = [
     component: () =>
       import(/* webpackChunkName: "manage" */ "../views/events/AddOrUpdateEventItem.vue"),
     meta: { requiresLogin: true }
+  },
+  {
+    path: "/:catchAll(.*)*",
+    redirect: { name: AppRouteNames.Home }
   }
 ];
 
