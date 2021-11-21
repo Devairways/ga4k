@@ -1,10 +1,5 @@
 <template>
-  <vee-form
-    :validation-schema="schema"
-    @submit="submitContactForm"
-    class="form"
-    :initial-values="userData"
-  >
+  <vee-form :validation-schema="schema" @submit="submitContactForm" class="form">
     <div class="form-group">
       <vee-field class="input" type="text" name="name" placeholder="Naam" />
       <ErrorMessage class="alert" name="name" />

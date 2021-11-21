@@ -42,6 +42,7 @@ export default defineComponent({
     padding: 35px 0;
     &-card {
       width: 200px;
+      max-width: 50%;
       padding: 10px;
       cursor: pointer;
       transition: transform 0.3s ease-in-out;

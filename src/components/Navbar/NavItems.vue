@@ -177,6 +177,7 @@ export default defineComponent({
     ...mapMutations(["toggleAuthModal"]),
     signout() {
       this.$store.dispatch("signout");
+      this.$router.push("/");
       window.location.reload();
     },
     showSublist(sublist) {
