@@ -18,7 +18,7 @@
         />
         <h2 v-else class="special_icon mb-3">{{ milesCount }}</h2>
       </div>
-      <p>KM gereden</p>
+      <p>{{ $t("achievementcounter.miles") }}</p>
     </div>
     <div class="col-6 col-md-3">
       <div class="form-group">
@@ -33,7 +33,7 @@
         />
         <h2 v-else class="special_icon mb-3">{{ clientsCount }}</h2>
       </div>
-      <p>Blije gezichten</p>
+      <p>{{ $t("achievementcounter.happy_faces") }}</p>
     </div>
     <div class="col-6 col-md-3">
       <div class="form-group">
@@ -48,7 +48,7 @@
         />
         <h2 v-else class="special_icon mb-3">{{ eventsCount }}</h2>
       </div>
-      <p>Evenementen</p>
+      <p>{{ $t("achievementcounter.events") }}</p>
     </div>
     <div class="col-6 col-md-3">
       <div class="form-group">
@@ -61,9 +61,9 @@
           @blur="updateAchievementData('donation_amount', donationsCount)"
           class="input"
         />
-        <h2 v-else class="special_icon mb-3">$ {{ donationsCount }}</h2>
+        <h2 v-else class="special_icon mb-3">{{ $n(donationsCount, "currency") }}</h2>
       </div>
-      <p>Opgehaald voor goede doelen</p>
+      <p>{{ $t("achievementcounter.raised_for_charity") }}</p>
     </div>
   </component>
 </template>

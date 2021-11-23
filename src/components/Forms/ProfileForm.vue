@@ -63,10 +63,9 @@
         :class="editMode ? 'readonly' : ''"
         :readonly="!editMode"
       >
-        <option value="USA">USA</option>
-        <option value="Mexico">Mexico</option>
-        <option value="Germany">Germany</option>
-        <option value="Antarctica">Antarctica</option>
+        <option v-for="country in countryList" :key="country.code" :value="$rt(country.code)">{{
+          $rt(country.name)
+        }}</option>
       </vee-field>
       <ErrorMessage class="alert" name="country" />
     </div>
@@ -74,17 +73,14 @@
     <div class="form-group">
       <p>Wachtwoord aanpassen</p>
       <vee-field
+        type="password"
         name="password"
-        :bails="false"
-        v-slot="{ field, errors }"
+        class="input"
+        placeholder="Wachtwoord"
         :class="editMode ? 'readonly' : ''"
         :readonly="!editMode"
-      >
-        <input class="input" type="password" placeholder="Wachtwoord" v-bind="field" />
-        <div class="alert" v-for="error in errors" :key="error">
-          {{ error }}
-        </div>
-      </vee-field>
+      />
+      <ErrorMessage class="alert" name="password" />
     </div>
     <!-- Confirm Password -->
     <div class="form-group">
@@ -135,6 +131,7 @@ export default defineComponent({
         password: "",
         confirm_password: ""
       } as UserData,
+      countryList: this.$tm("countries"),
       editMode: false
     };
   },

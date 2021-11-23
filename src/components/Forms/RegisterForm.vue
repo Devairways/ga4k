@@ -15,10 +15,9 @@
     </div>
     <div class="form-group col-12 col-md-6">
       <vee-field as="select" name="country" class="input">
-        <option value="USA">USA</option>
-        <option value="Mexico">Mexico</option>
-        <option value="Germany">Germany</option>
-        <option value="Antarctica">Antarctica</option>
+        <option v-for="country in countryList" :key="country.code" :value="$rt(country.code)">{{
+          $rt(country.name)
+        }}</option>
       </vee-field>
       <ErrorMessage class="alert" name="country" />
     </div>
@@ -60,6 +59,11 @@ import { defineComponent } from "@vue/runtime-core";
 import { ElNotification } from "element-plus";
 import { mapState } from "vuex";
 
+export type CountryType = {
+  name: string;
+  code: string;
+};
+
 export default defineComponent({
   name: "RegisterForm",
   data() {
@@ -73,9 +77,10 @@ export default defineComponent({
         role: "required"
       },
       userData: {
-        country: "USA",
+        country: "US",
         memberSince: new Date()
       },
+      countryList: this.$tm("countries"),
       reg_in_submission: false
     };
   },

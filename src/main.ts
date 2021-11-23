@@ -13,6 +13,7 @@ import VeeValidate from "./plugins/validation";
 import "element-plus/dist/index.css";
 import "@/assets/scss/imports.scss";
 import GlobalDirectives from "./plugins/globalDirectives";
+import i18n from "./plugins/i18n";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let app: any;
@@ -22,6 +23,7 @@ auth.onAuthStateChanged(() => {
     app = createApp(App);
     const emitter = mitt();
     app.config.globalProperties.emitter = emitter;
+    app.use(i18n);
     app.use(VueMasonryPlugin);
     app.use(store);
     app.use(router);
