@@ -23,9 +23,9 @@
     </div>
     <div class="form-group col-12 col-md-6">
       <vee-field as="select" name="role" class="input">
-        <option value="Founder">Oprichter</option>
-        <option value="Member">Lid</option>
-        <option value="Associate">Partner</option>
+        <option value="Founder">{{ $t("forms.register.role.founder") }}</option>
+        <option value="Member">{{ $t("forms.register.role.member") }}</option>
+        <option value="Associate">{{ $t("forms.register.role.partner") }}</option>
       </vee-field>
       <ErrorMessage class="alert" name="country" />
     </div>
@@ -48,7 +48,7 @@
     </div>
     <button type="submit" :disabled="reg_in_submission" class="button mr-auto ml-3">
       <img v-if="reg_in_submission" class="loadingspinner" src="img/spinner.svg" alt="" />
-      <p v-else class="m-0">Registreer</p>
+      <p v-else class="m-0">{{ $t("forms.register.button") }}</p>
     </button>
   </vee-form>
 </template>

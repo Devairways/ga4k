@@ -6,14 +6,14 @@
       </parallax>
       <div class="container">
         <div class="parallax-content-text">
-          <h1 class="h1-seo">Events</h1>
+          <h1 class="h1-seo">{{ $t("events.title") }}</h1>
         </div>
       </div>
     </div>
     <div class="section">
       <div class="col-12 container d-flex flex-column">
         <div class="title col-8 mx-auto">
-          <h2>{{ edit ? "Update item" : "Nieuw item" }}</h2>
+          <h2>{{ $t("events.add_or_update.title", edit ? 0 : 1) }}</h2>
         </div>
         <vee-form
           :validation-schema="schema"
@@ -60,7 +60,7 @@
             ><img :src="dialogImageUrl" alt="preview" />
           </el-dialog>
           <button type="submit" :disabled="pendingRequest" class="button mx-auto">
-            verzend
+            {{ $t("events.add_or_update.button") }}
           </button>
         </vee-form>
       </div>

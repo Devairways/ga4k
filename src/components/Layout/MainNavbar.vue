@@ -2,7 +2,7 @@
   <navbar colorOnScroll="400" :isPortableDevice="isPortableDevice">
     <template v-slot:navbar-logo>
       <router-link class="navbar-brand special_icon" to="/">
-        Guardian Angels 4 kids
+        {{ $t("layout.nav.title") }}
       </router-link>
     </template>
     <template v-slot:navbar-menu>

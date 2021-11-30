@@ -1,6 +1,8 @@
 <template>
   <Modal :showModal="authModalShow" :close="toggleAuthModal">
-    <template v-slot:title><h2>Login</h2></template>
+    <template v-slot:title
+      ><h2>{{ $T("authmodal.title") }}</h2></template
+    >
     <template v-slot:body><login-form></login-form></template>
   </Modal>
 </template>

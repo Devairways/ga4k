@@ -5,7 +5,7 @@
         ><div class="overlay-container"></div>
       </parallax>
       <div class="parallax-content-text">
-        <h1 class="h1-seo">Events</h1>
+        <h1 class="h1-seo">{{ $t("events.title") }}</h1>
       </div>
     </div>
     <div class="main">
@@ -37,7 +37,7 @@
     <div class="section">
       <div class="container flex-column breaker">
         <div class="title">
-          <h2>Gerelateerd</h2>
+          <h2>{{ $t("events.detail.related") }}</h2>
         </div>
         <div class="col-12 ">
           <Carousel type="card" />

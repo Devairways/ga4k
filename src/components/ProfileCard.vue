@@ -7,7 +7,7 @@
       <h2>{{ user?.name }}</h2>
       <p class="description m-0">{{ user?.email }}</p>
       <p>{{ user?.phone }}</p>
-      <p>{{ user?.country }}</p>
+      <p>{{ userCountry }}</p>
     </div>
   </div>
 </template>
@@ -24,8 +24,23 @@ export default defineComponent({
   },
   data() {
     return {
+      countryList: this.$tm("countries"),
       timestampToDate
     };
+  },
+  computed: {
+    userCountry() {
+      const countryCode = this.user?.country;
+      const countrylist = this.countryList as [];
+      let countryName;
+
+      countrylist.forEach((country: { code: string; name: string }) => {
+        if (this.$rt(country.code) === countryCode) {
+          countryName = this.$rt(country.name);
+        }
+      });
+      return countryName ?? countryCode;
+    }
   }
 });
 </script>

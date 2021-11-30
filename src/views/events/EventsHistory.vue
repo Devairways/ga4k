@@ -5,13 +5,13 @@
         ><div class="overlay-container"></div>
       </parallax>
       <div class="parallax-content-text">
-        <h1 class="h1-seo">Events</h1>
+        <h1 class="h1-seo">{{ $t("events.title") }}</h1>
       </div>
     </div>
     <div class="section">
       <div class="container flex-column">
         <div class="title mr-auto pl-5">
-          <h2>Uitgelicht</h2>
+          <h2>{{ $t("events.history.special") }}</h2>
         </div>
         <div class="col-12 ">
           <Carousel />

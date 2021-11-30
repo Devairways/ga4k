@@ -7,22 +7,20 @@
 
       <div class="parallax-content">
         <img class="GA-logo" src="img/logo.svg" alt="" />
-        <h1>Welkom bij de <span class="brand-label special_icon">Guardian Angels</span></h1>
-        <h3>Klaar voor de rit van je leven?</h3>
+        <h1>
+          {{ $t("home.title") }}
+          <span class="brand-label special_icon">{{ $t("home.brand") }}</span>
+        </h1>
+        <h3>{{ $t("home.subtitle") }}</h3>
       </div>
     </div>
     <div class="section">
       <div class="container text-center">
         <div class="col-12 col-lg-10">
           <h1 class="brand-established f_alg pt-4">-EST- 2020</h1>
-          <p class="description mb-4">
-            Wij zijn een nederlandse trikestichting die toerritten aanbied voor kansarme
-            kinderen/volwassene of anderzijds met beperkingen, ons team is volledig uitgerust met de
-            kennis en ervaring om voor deze groep leuke, stoere en vooral veilige dagtrips te
-            verzorgen. Dit doen wij met heel veel plezier en natuurlijk onze trikes!
-          </p>
+          <p class="description mb-4">{{ $t("home.description") }}</p>
           <button type="primary" @click="redirect('/about')" class="button mx-auto">
-            Lees meer
+            {{ $t("home.read_more") }}
           </button>
         </div>
       </div>
@@ -35,9 +33,9 @@
               <img src="img/eva.jpg" alt="" />
             </div>
             <div class="col-12 col-md-4 text-center info-card">
-              <h2 class="title f_GthR">Beleven</h2>
+              <h2 class="title f_GthR">{{ $t("home.activity.one.title") }}</h2>
               <p class="description m-2">
-                De wind in je haar en de kracht van de motor die je voelt ronken vanuit je stoel.
+                {{ $t("home.activity.one.description") }}
               </p>
             </div>
             <div class="col-10 col-md-4 d-none d-md-block info-card">
@@ -46,20 +44,18 @@
           </div>
           <div class="col-md-12 row info mx-auto">
             <div class="col-12 col-md-4 text-center info-card">
-              <h2 class="title f_GthR">Toeren</h2>
+              <h2 class="title f_GthR">{{ $t("home.activity.two.title") }}</h2>
               <p class="description m-2">
-                The great open road awaits! Het stalen ros staat klaar om je een rit te bezorgen die
-                je niet snel vergeet.
+                {{ $t("home.activity.two.description") }}
               </p>
             </div>
             <div class="col-10 col-md-4 d-none d-md-block info-card">
               <img src="img/scene.jpg" alt="" />
             </div>
             <div class="col-12 col-md-4 text-center info-card">
-              <h2 class="title f_GthR">Nooit meer vergeten!</h2>
+              <h2 class="title f_GthR">{{ $t("home.activity.three.title") }}</h2>
               <p class="description m-2">
-                Een dag triken is een dag leven alsof je je op Route 66 begeeft, zeker een ervaring
-                die je nog lang bij zal blijven.
+                {{ $t("home.activity.three.description") }}
               </p>
             </div>
           </div>
@@ -69,7 +65,7 @@
     <div class="section">
       <div class="container flex-column">
         <div class="title mr-auto">
-          <h2>Recente events</h2>
+          <h2>{{ $t("home.recent_events") }}</h2>
         </div>
         <div class="col-12 ">
           <Carousel />
@@ -83,23 +79,23 @@
       <div class="container">
         <div class="col-12 col-lg-10 row breaker">
           <div class="col-12 col-lg-6 mx-auto">
-            <h2 class="title">Locatie Zuid-Holland</h2>
+            <h2 class="title">{{ $t("home.location.province") }}</h2>
             <p class="description mb-4">
-              Ons kantoor is gelegen in Spijkenisse nabij Rotterdam.
+              {{ $t("home.location.office_text") }}
             </p>
             <ul class="pl-3">
-              <li><i class="fas fa-map-marker-alt"></i> Junopad 5, Spijkenisse</li>
-              <li><i class="fas fa-mobile-alt"></i> +31612345678</li>
-              <li><i class="far fa-envelope"></i> GA@4kids.nl</li>
+              <li><i class="fas fa-map-marker-alt"></i> {{ $t("home.location.adress") }}</li>
+              <li><i class="fas fa-mobile-alt"></i> {{ $t("home.location.phone") }}</li>
+              <li><i class="far fa-envelope"></i> info@guardianangels4kids.nl</li>
               <li>
-                KVK: 1234567
+                {{ $t("home.location.kvk") }}
               </li>
             </ul>
           </div>
           <div class="col-12 col-lg-6 mx-auto ">
-            <h2 class="title">Klaar om te rijden?</h2>
+            <h2 class="title">{{ $t("home.contact_form.title") }}</h2>
             <p class="description mb-4">
-              Neem dan contact met ons op via onderstaand formulier.
+              {{ $t("home.contact_form.description") }}
             </p>
             <ContactForm />
           </div>

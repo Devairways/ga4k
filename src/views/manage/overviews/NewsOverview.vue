@@ -1,21 +1,25 @@
 <template>
   <div id="news-overview">
     <div class="col-12">
-      <h2 class="title">Nieuws</h2>
+      <h2 class="title">{{ $t("manage.overview.news.title") }}</h2>
       <div class="col-12 row">
         <h3 class="col-10">
-          aantal: <span>{{ newsList.length }}</span>
+          {{ $t("manage.overview.news.amount") }}
+          <span>{{
+            $t("manage.overview.news.items", newsList.length, { count: newsList.length })
+          }}</span>
         </h3>
         <router-link to="/news/add"
-          ><button class="button">{{ `Nieuw item  ` }}<i class="fas fa-plus"></i></button
+          ><button class="button">
+            {{ $t("manage.overview.news.button") }}<i class="fas fa-plus"></i></button
         ></router-link>
       </div>
 
       <div class="col-12 row mx-auto p-0">
-        <h3 class="col-3">Titel</h3>
-        <h3 class="col-3">Aangemaakt op</h3>
-        <h3 class="col-4">Omschrijving</h3>
-        <h3 class="col-2">Acties</h3>
+        <h3 class="col-3">{{ $t("manage.overview.news.title_header") }}</h3>
+        <h3 class="col-3">{{ $t("manage.overview.news.created_on_header") }}</h3>
+        <h3 class="col-4">{{ $t("manage.overview.news.description_header") }}</h3>
+        <h3 class="col-2">{{ $t("manage.overview.news.action_header") }}</h3>
       </div>
       <div class="col-12 item">
         <div v-for="newsItem in newsList" :key="newsItem.id" class="item-row">

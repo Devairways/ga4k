@@ -6,14 +6,17 @@
       </parallax>
 
       <div class="parallax-content-text">
-        <h1 class="h1-seo">Manage</h1>
+        <h1 class="h1-seo">{{ $t("manage.title") }}</h1>
       </div>
     </div>
     <div class="section px-0 mt-4">
-      <tabs :labels="['Users', 'Events', 'News']" @update:next-tab="changeTab"></tabs>
+      <tabs
+        :labels="[$t('manage.tabs.users'), $t('manage.tabs.news'), $t('manage.tabs.events')]"
+        @update:next-tab="changeTab"
+      ></tabs>
       <div class="col-12 container-bg-grey py-3">
-        <users-overview v-if="currentTab === 'Users'"></users-overview>
-        <events-overview v-else-if="currentTab === 'Events'"></events-overview>
+        <users-overview v-if="currentTab === $t('manage.tabs.users')"></users-overview>
+        <events-overview v-else-if="currentTab === $t('manage.tabs.events')"></events-overview>
         <news-overview v-else></news-overview>
       </div>
     </div>
@@ -36,7 +39,7 @@ export default defineComponent({
   components: { Parallax, AchievementCounter, Tabs, NewsOverview, EventsOverview, UsersOverview },
   data() {
     return {
-      currentTab: "Users",
+      currentTab: this.$t("manage.tabs.users"),
       timestampToDate
     };
   },

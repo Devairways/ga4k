@@ -1,21 +1,25 @@
 <template>
   <div id="events-overview">
     <div class="col-12">
-      <h2 class="title">Events</h2>
+      <h2 class="title">{{ $t("manage.overview.events.title") }}</h2>
       <div class="col-12 row">
         <h3 class="col-10">
-          aantal: <span>{{ eventsList.length }}</span>
+          {{ $t("manage.overview.events.amount") }}
+          <span>{{
+            $t("manage.overview.events.items", eventsList.length, { count: eventsList.length })
+          }}</span>
         </h3>
         <router-link to="/events/add"
-          ><button class="button">{{ `Nieuw item  ` }}<i class="fas fa-plus"></i></button
+          ><button class="button">
+            {{ $t("manage.overview.events.button") }}<i class="fas fa-plus"></i></button
         ></router-link>
       </div>
 
       <div class="col-12 row mx-auto p-0">
-        <h3 class="col-3">Titel</h3>
-        <h3 class="col-3">Aangemaakt op</h3>
-        <h3 class="col-4">Omschrijving</h3>
-        <h3 class="col-2">Acties</h3>
+        <h3 class="col-3">{{ $t("manage.overview.events.title_header") }}</h3>
+        <h3 class="col-3">{{ $t("manage.overview.events.created_on_header") }}</h3>
+        <h3 class="col-4">{{ $t("manage.overview.events.description_header") }}</h3>
+        <h3 class="col-2">{{ $t("manage.overview.events.action_header") }}</h3>
       </div>
       <div class="col-12 item">
         <div v-for="eventsItem in eventsList" :key="eventsItem.id" class="item-row">

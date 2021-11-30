@@ -4,7 +4,7 @@
       <parallax class="parallax-header-image" style="background-image:url('img/rent.jpg')">
         <div class="overlay-container"></div>
         <div class="parallax-content-text">
-          <h1 class="h1-seo">Profiel</h1>
+          <h1 class="h1-seo">{{ $t("users.profile.title") }}</h1>
         </div></parallax
       >
     </div>
@@ -25,10 +25,10 @@
               :limit="1"
               :http-request="uploadNewPicture"
             >
-              <el-button size="small" type="primary">Upload nieuw foto</el-button>
+              <el-button size="small" type="primary">{{ $t("users.profile.upload") }}</el-button>
               <template #tip>
                 <div class="el-upload__tip">
-                  jpg/png files with a size less than 500kb
+                  {{ $t("users.profile.size") }}
                 </div>
               </template>
             </el-upload>

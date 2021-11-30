@@ -6,25 +6,20 @@
       </parallax>
 
       <div class="parallax-content-text">
-        <h1 class="h1-seo">About us</h1>
+        <h1 class="h1-seo">{{ $t("about.title") }}</h1>
       </div>
     </div>
     <div class="section">
       <div class="container text-center">
         <div class="col-12 col-lg-10">
           <h1 class="brand-established f_alg pt-4">-EST- 2020</h1>
-          <p class="description mb-4">
-            Wij zijn een nederlandse trikestichting die toerritten aanbied voor kansarme
-            kinderen/volwassene of anderzijds met beperkingen, ons team is volledig uitgerust met de
-            kennis en ervaring om voor deze groep leuke, stoere en vooral veilige dagtrips te
-            verzorgen. Dit doen wij met heel veel plezier en natuurlijk onze trikes!
-          </p>
+          <p class="description mb-4">{{ $t("about.description") }}</p>
         </div>
       </div>
     </div>
     <div class="section p-0">
       <div class="container-bg-grey pb-4 d-flex flex-column">
-        <h2 class="title ml-4 mr-auto">Oprichters</h2>
+        <h2 class="title ml-4 mr-auto">{{ $t("about.founders") }}</h2>
         <div class="col-12 row info mx-auto">
           <div v-for="user in usersList" :key="user.id" class="info-card">
             <profile-card :user="user"></profile-card>
@@ -36,23 +31,23 @@
       <div class="container">
         <div class="col-12 col-lg-10 row">
           <div class="col-12 col-lg-6 mx-auto">
-            <h2 class="title">Locatie Zuid-Holland</h2>
+            <h2 class="title">{{ $t("about.location.province") }}</h2>
             <p class="description mb-4">
-              Ons kantoor is gelegen in Spijkenisse nabij Rotterdam.
+              {{ $t("about.location.office_text") }}
             </p>
             <ul class="pl-3">
-              <li><i class="fas fa-map-marker-alt"></i> Junopad 5, Spijkenisse</li>
-              <li><i class="fas fa-mobile-alt"></i> +31612345678</li>
-              <li><i class="far fa-envelope"></i> GA@4kids.nl</li>
+              <li><i class="fas fa-map-marker-alt"></i> {{ $t("about.location.adress") }}</li>
+              <li><i class="fas fa-mobile-alt"></i> {{ $t("about.location.phone") }}</li>
+              <li><i class="far fa-envelope"></i> info@guardianangels4kids.nl</li>
               <li>
-                KVK: 1234567
+                {{ $t("about.location.kvk") }}
               </li>
             </ul>
           </div>
           <div class="col-12 col-lg-6 mx-auto ">
-            <h2 class="title">Klaar om te rijden?</h2>
+            <h2 class="title">{{ $t("about.contact_form.title") }}</h2>
             <p class="description mb-4">
-              Neem dan contact met ons op via onderstaand formulier.
+              {{ $t("about.contact_form.description") }}
             </p>
             <ContactForm />
           </div>

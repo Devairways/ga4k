@@ -3,25 +3,25 @@
     <div class="container" style="max-width: 1400px;">
       <div class="row mx-auto">
         <div class="text-center col-10 col-lg-4 mx-auto">
-          <h2>Geinteresseerd in wat wij doen?</h2>
+          <h2>{{ $t("layout.footer.interested_title") }}</h2>
           <h5 class="description mb-4">
-            Neem dan contact met ons op, dan kunnen we samen kijken naar de mogelijkheden om een
-            onvergetelijke dag te organiseren.
+            {{ $t("layout.footer.interested_body") }}
           </h5>
         </div>
         <div class="col-10 col-lg-8 d-md-flex links mx-auto">
           <div class="p-3 link-block">
-            <h3 class="mb-2">Contact</h3>
+            <h3 class="mb-2">{{ $t("layout.footer.contact_title") }}</h3>
             <ul>
               <li>
                 <router-link to="/">
-                  <i class="fas fa-map-marker-alt special_icon"></i> Junopad 5, Spijkenisse
+                  <i class="fas fa-map-marker-alt special_icon"></i>
+                  {{ $t("layout.footer.contact_adres") }}
                 </router-link>
               </li>
               <li>
                 <router-link to="/">
                   <i class="fas fa-mobile-alt special_icon"></i>
-                  +31612345678
+                  {{ $t("layout.footer.contact_phone") }}
                 </router-link>
               </li>
               <li>
@@ -32,49 +32,55 @@
               </li>
               <li>
                 <router-link to="/">
-                  KVK: 1234567
+                  {{ $t("layout.footer.contact_kvk") }}
                 </router-link>
               </li>
             </ul>
           </div>
 
           <div class="p-3 link-block">
-            <h3 class="mb-2">Lees meer</h3>
+            <h3 class="mb-2">{{ $t("layout.footer.more_title") }}</h3>
             <ul>
               <li>
                 <router-link to="/about">
-                  <i class="now-ui-icons business_chart-pie-36"></i> Over ons
+                  <i class="now-ui-icons business_chart-pie-36"></i>
+                  {{ $t("layout.footer.more_about") }}
                 </router-link>
               </li>
               <li>
                 <router-link to="/news">
-                  <i class="now-ui-icons business_chart-pie-36"></i>{{ `Nieuws & verhalen` }}
+                  <i class="now-ui-icons business_chart-pie-36"></i
+                  >{{ $t("layout.footer.more_news") }}
                 </router-link>
               </li>
               <li>
                 <router-link to="/events">
-                  <i class="now-ui-icons business_chart-pie-36"></i> Aankomende events
+                  <i class="now-ui-icons business_chart-pie-36"></i>
+                  {{ $t("layout.footer.more_events") }}
                 </router-link>
               </li>
             </ul>
           </div>
           <div class="p-3 link-block">
             <div>
-              <h3 class="mb-2">Handige links</h3>
+              <h3 class="mb-2">{{ $t("layout.footer.links_title") }}</h3>
               <ul>
                 <li>
                   <router-link to="/">
-                    <i class="now-ui-icons business_chart-pie-36"></i> Over ons
+                    <i class="now-ui-icons business_chart-pie-36"></i>
+                    {{ $t("layout.footer.links_placeholder") }}
                   </router-link>
                 </li>
                 <li>
                   <router-link to="/">
-                    <i class="now-ui-icons business_chart-pie-36"></i> Over ons
+                    <i class="now-ui-icons business_chart-pie-36"></i>
+                    {{ $t("layout.footer.links_placeholder") }}
                   </router-link>
                 </li>
                 <li>
                   <router-link to="/">
-                    <i class="now-ui-icons business_chart-pie-36"></i> Over ons
+                    <i class="now-ui-icons business_chart-pie-36"></i>
+                    {{ $t("layout.footer.links_placeholder") }}
                   </router-link>
                 </li>
               </ul>

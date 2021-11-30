@@ -6,7 +6,7 @@
       </parallax>
 
       <div class="parallax-content-text">
-        <h1 class="h1-seo">Partners</h1>
+        <h1 class="h1-seo">{{ $t("partners") }}</h1>
       </div>
     </div>
     <div class="section">

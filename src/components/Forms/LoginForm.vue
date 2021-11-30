@@ -10,7 +10,7 @@
     </div>
     <button type="submit" :disabled="login_in_submission" class="button mr-auto">
       <img v-if="login_in_submission" class="loadingspinner" src="img/spinner.svg" alt="" />
-      <p v-else class="m-0">Login</p>
+      <p v-else class="m-0">{{ $t("forms.login.button") }}</p>
     </button>
   </vee-form>
 </template>

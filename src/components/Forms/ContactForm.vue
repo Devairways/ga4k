@@ -14,7 +14,7 @@
     </div>
     <p v-if="reg_show_alert">{{ reg_alert_msg }}</p>
     <button type="submit" :disabled="reg_in_submission" class="button">
-      Verzend
+      {{ $t("forms.contact.button") }}
     </button>
   </vee-form>
 </template>

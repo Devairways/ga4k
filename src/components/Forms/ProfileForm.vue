@@ -48,9 +48,9 @@
         :class="editMode ? 'readonly' : ''"
         :readonly="!editMode"
       >
-        <option value="Founder">Oprichter</option>
-        <option value="Member">Lid</option>
-        <option value="Associate">Partner</option>
+        <option value="Founder">{{ $t("forms.profile.role.founder") }}</option>
+        <option value="Member">{{ $t("forms.profile.role.member") }}</option>
+        <option value="Associate">{{ $t("forms.profile.role.partner") }}</option>
       </vee-field>
       <ErrorMessage class="alert" name="role" />
     </div>
@@ -71,7 +71,7 @@
     </div>
     <!-- Password -->
     <div class="form-group">
-      <p>Wachtwoord aanpassen</p>
+      <p>{{ $t("forms.profile.change_password") }}</p>
       <vee-field
         type="password"
         name="password"
@@ -95,7 +95,7 @@
       <ErrorMessage class="alert" name="confirm_password" />
     </div>
     <button type="submit" class="button mr-auto edit-btn">
-      <p class="m-0">{{ editMode ? "Opslaan" : "Bewerken" }}</p>
+      <p class="m-0">{{ $tc("forms.profile.button", !editMode ? 2 : 1) }}</p>
     </button>
   </vee-form>
 </template>

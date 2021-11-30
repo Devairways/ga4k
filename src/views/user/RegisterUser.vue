@@ -6,14 +6,14 @@
       </parallax>
       <div class="container">
         <div class="parallax-content-text">
-          <h1 class="h1-seo">Manage</h1>
+          <h1 class="h1-seo">{{ $t("users.new.title") }}</h1>
         </div>
       </div>
     </div>
     <div class="section">
       <div class="col-12 container d-flex flex-column">
         <div class="title col-8 mx-auto">
-          <h2>Nieuwe gebruiker</h2>
+          <h2>{{ $t("users.new.new_user") }}</h2>
         </div>
         <register-form></register-form>
       </div>

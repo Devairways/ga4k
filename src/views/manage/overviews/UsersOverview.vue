@@ -1,13 +1,17 @@
 <template>
   <div id="users-overview">
     <div class="col-12">
-      <h2 class="title">Gebruikers</h2>
+      <h2 class="title">{{ $t("manage.overview.users.title") }}</h2>
       <div class="col-12 row">
         <h3 class="col-10">
-          aantal: <span>{{ usersList.length }}</span>
+          {{ $t("manage.overview.users.amount") }}
+          <span>{{
+            $t("manage.overview.users.users", usersList.length, { count: usersList.length })
+          }}</span>
         </h3>
         <router-link to="/register"
-          ><button class="button">{{ `Nieuwe gebruiker  ` }}<i class="fas fa-plus"></i></button
+          ><button class="button">
+            {{ $t("manage.overview.users.button") }}<i class="fas fa-plus"></i></button
         ></router-link>
       </div>
       <div class="item row">
